@@ -4,7 +4,7 @@ export default function Hero() {
     return (
         <section className="h-screen">
             <h1>Welcome to the Hero component</h1>
-            <img src={flowerImage} alt="Red beutiful flower" className="w-full h-full object-cover" />
+            <img src={flowerImage} alt="Red beautiful flower" className="md:h-auto"/>
         </section>
     )
 }
