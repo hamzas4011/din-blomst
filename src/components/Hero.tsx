@@ -12,9 +12,11 @@ export default function Hero() {
             alt="Red beautiful flower" 
             className="w-full max-w-3xl object-cover rounded-lg shadow-md"
             />
-            <div className = "gap-4">
-                <img src={flower2} alt="Flower" className="w-32 h-32 object-cover"
-                </div>
+            <div className = "flex gap-4">
+                <img src={flower2} alt="Flower" className="w-32 h-32 object-cover rounded-md" />
+                <img src={flower3} alt="Flower" className="w-32 h-32 object-cover " />
+                <img src={flower4} alt="Flower" className="w-32 h-32 object-cover" />
+            </div>
         </section>
     )
 }
