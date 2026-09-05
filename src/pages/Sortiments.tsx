@@ -1,5 +1,5 @@
-export default function Sortiment {
+export default function Sortiment() {
     return (
-        
+        <></>
     )
 }
