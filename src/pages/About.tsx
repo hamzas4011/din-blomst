@@ -16,13 +16,15 @@ export default function About() {
                 />
                 <div className="md:w-1/2">
                     <p className="font-body text-charcoal leading-relaxed mb-4">
-                        Din Blomst startet med en enkel idé: at blomster skal bringe glede inn i hverdagen,
-                        ikke bare på store anledninger. Det som begynte som en liten samling håndplukkede
-                        buketter, har vokst til en butikk der hver stilk velges med omtanke.
+                        Din Blomst har vært en familiebedrift siden 1972.
+                        Det som startet som en liten blomsterbod drevet med kjærlighet gjennom generasjoner,
+                        har vokst til en butikk vi er stolte av i dag. 
+                        Fortsatt velges hver stilk med samme omtanke som den gang.
                     </p>
                     <p className="font-body text-charcoal leading-relaxed">
-                        Vi tror på det enkle og vakre — friske, sesongbaserte blomster, satt sammen med
-                        kjærlighet til detaljer. Enten det er en bukett til deg selv en helt vanlig tirsdag,
+                        Hver bukett settes sammen for hånd med friske sesongblomster og god tid. 
+                        Vi tror ikke på hastverk når det kommer til blomster som skal bety noe.
+                        Enten det er en bukett til deg selv en helt vanlig tirsdag,
                         eller en gave til noen som betyr mye, ønsker vi at hver blomst skal fortelle en historie.
                     </p>
                 </div>
