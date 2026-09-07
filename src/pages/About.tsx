@@ -11,6 +11,7 @@ export default function About() {
                 <img
                     src={shop}
                     alt="Din Blomst butikk"
+                    loading="lazy"
                     className="w-full md:w-1/2 object-cover rounded-lg shadow-md"
                 />
                 <div className="md:w-1/2">
