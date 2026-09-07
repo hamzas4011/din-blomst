@@ -2,8 +2,8 @@ import shop from "../assets/shop.jpg";
 
 export default function About() {
     return (
-        <div className="px-8 py-16 max-w-5xl mx-auto">
-            <h1 className="font-heading text-4xl text-charcoal text-center mb-12">
+        <div className="px-8 pt-32 pb-16 max-w-5xl mx-auto">
+            <h1 className="font-heading text-5xl text-charcoal text-center mb-12">
                 Om oss
             </h1>
 
