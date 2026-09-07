@@ -20,9 +20,9 @@ export default function Hero() {
             />
 
             <div className="flex gap-4">
-                <img src={flower2} alt="Flower" className="w-32 h-32 object-cover rounded-md shadow-sm" />
-                <img src={flower3} alt="Flower" className="w-32 h-32 object-cover rounded-md shadow-sm" />
-                <img src={flower4} alt="Flower" className="w-32 h-32 object-cover rounded-md shadow-sm" />
+                <img src={flower2} alt="Flower" loading="lazy" className="w-32 h-32 object-cover rounded-md shadow-sm" />
+                <img src={flower3} alt="Flower" loading="lazy" className="w-32 h-32 object-cover rounded-md shadow-sm" />
+                <img src={flower4} alt="Flower" loading="lazy" className="w-32 h-32 object-cover rounded-md shadow-sm" />
             </div>
         </section>
     )
