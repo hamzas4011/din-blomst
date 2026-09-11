@@ -11,6 +11,20 @@ import flower10 from "../assets/flower-10.jpg";
 import flower11 from "../assets/flower-11.jpg";
 import flower12 from "../assets/flower-12.jpg";
 
+export const flowers = [
+  { name: "Rosa Roser", price: "249 kr", image: flower1 },
+  { name: "Hvite Tulipaner", price: "199 kr", image: flower2 },
+  { name: "Peoner", price: "329 kr", image: flower3 },
+  { name: "Solsikker", price: "179 kr", image: flower4 },
+  { name: "Vårbukett", price: "279 kr", image: flower5 },
+  { name: "Sommerbukett", price: "299 kr", image: flower6 },
+  { name: "Rustikk Bukett", price: "259 kr", image: flower7 },
+  { name: "Hvit Elegance", price: "349 kr", image: flower8 },
+  { name: "Bryllupsbukett", price: "499 kr", image: flower9 },
+  { name: "Orkidé", price: "229 kr", image: flower10 },
+  { name: "Sukkulent-sett", price: "199 kr", image: flower11 },
+  { name: "Fødselsdagsbukett", price: "289 kr", image: flower12 },
+];
 
 
 const Images = () => {
