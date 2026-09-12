@@ -9,12 +9,12 @@ export default function Sortiment() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {flowers.map((flower) => (
-                    <div key={flower.name} className="bg-cream rounded-lg shadow-md overflow-hidden">
+                    <div key={flower.name} className="bg-cream rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
                         <img
                             src={flower.image}
                             alt={flower.name}
                             loading="lazy"
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
                         />
                         <div className="p-4 text-center">
                             <h2 className="font-heading text-xl text-charcoal">{flower.name}</h2>
