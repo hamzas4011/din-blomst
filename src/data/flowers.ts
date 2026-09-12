@@ -26,7 +26,3 @@ export const flowers = [
   { name: "Fødselsdagsbukett", price: "289 kr", image: flower12 },
 ];
 
-
-const Images = () => {
-
-}
