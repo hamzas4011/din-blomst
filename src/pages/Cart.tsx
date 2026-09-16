@@ -1,5 +1,5 @@
 type CartProps = {
-    cart: { name: string; price: string; image: string }[];
+    cart: { name: string; price: string; image: string; quantity: number }[];
 };
 
 export default function Cart({ cart }: CartProps) {
@@ -15,9 +15,9 @@ export default function Cart({ cart }: CartProps) {
                 </p>
             ) : (
                 <div className="flex flex-col gap-4">
-                    {cart.map((item, index) => (
+                    {cart.map((item) => (
                         <div
-                            key={index}
+                            key={item.name}
                             className="flex items-center gap-4 bg-cream rounded-lg p-4"
                         >
                             <img
@@ -28,6 +28,7 @@ export default function Cart({ cart }: CartProps) {
                             <div>
                                 <h2 className="font-heading text-lg text-charcoal">{item.name}</h2>
                                 <p className="font-body text-sage-dark">{item.price}</p>
+                                <p className="font-body text-sage-dark">Antall: {item.quantity}</p>
                             </div>
                         </div>
                     ))}

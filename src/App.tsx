@@ -8,16 +8,26 @@ import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-    const [cart, setCart] = useState<{ name: string; price: string; image: string }[]>([]);
+    const [cart, setCart] = useState<{ name: string; price: string; image: string; quantity: number }[]>([]);
 
-    const addToCart = (flower: { name: string; price: string; image: string }) => {
-        setCart([...cart, flower]);
+    const addToCart = (flower: { name: string; price: string; image: string }, quantity: number) => {
+        setCart((prev) => {
+            const existing = prev.find((item) => item.name === flower.name);
+            if (existing) {
+                return prev.map((item) =>
+                    item.name === flower.name ? { ...item, quantity: item.quantity + quantity } : item
+                );
+            }
+            return [...prev, { ...flower, quantity }];
+        });
     };
+
+    const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
         <BrowserRouter>
             <div className="min-h-screen flex flex-col">
-                <Nav cartCount={cart.length} />
+                <Nav cartCount={cartCount} />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/om-oss" element={<About />} />
