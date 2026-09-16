@@ -38,7 +38,7 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                             <div className="flex items-center justify-center gap-3 mt-3">
                                 <button
                                     onClick={() => changeQuantity(flower.name, -1)}
-                                    className="w-8 h-8 rounded-md bg-white border border-sage text-sage-dark cursor-pointer hover:bg-sage hover:text-white hover:border-sage-dark active:scale-95 transition-colors"
+                                    className="w-8 h-8 rounded-md bg-white border border-sage text-sage-dark cursor-pointer active:scale-95 transition-colors"
                                     aria-label="Reduser antall"
                                 >
                                     -
@@ -46,7 +46,7 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                                 <span className="font-body text-charcoal w-6 text-center">{getQuantity(flower.name)}</span>
                                 <button
                                     onClick={() => changeQuantity(flower.name, 1)}
-                                    className="w-8 h-8 rounded-md bg-white border border-sage text-sage-dark cursor-pointer hover:bg-sage hover:text-white hover:border-sage-dark active:scale-95 transition-colors"
+                                    className="w-8 h-8 rounded-md bg-white border border-sage text-sage-dark cursor-pointer active:scale-95 transition-colors"
                                     aria-label="Øk antall"
                                 >
                                     +
