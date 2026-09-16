@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
-export default function Nav() {
+type NavProps = {
+    cartCount: number;
+};
+
+export default function Nav({ cartCount }: NavProps) {
     return (
         <nav className="bg-green-100 flex items-center justify-between px-8 py-4">
             <Link to="/" className="font-heading text-2xl text-black">
@@ -20,10 +24,10 @@ export default function Nav() {
                     Sortiment
                 </Link>
                 <Link
-                    to="/cart"
+                    to="/handlekurv"
                     className=" hover:text-green-500"
                 >
-                    Handlekurv
+                    Handlekurv ({cartCount})
                 </Link>
             </div>
         </nav>

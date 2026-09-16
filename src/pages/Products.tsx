@@ -1,6 +1,10 @@
 import { flowers } from "../data/flowers";
 
-export default function Sortiment() {
+type SortimentProps = {
+    onAddToCart: (flower: { name: string; price: string; image: string }) => void;
+};
+
+export default function Sortiment({ onAddToCart }: SortimentProps) {
     return (
         <div className="px-8 pt-20 pb-16 max-w-6xl mx-auto">
             <h1 className="font-heading text-4xl text-charcoal text-center mb-12">
@@ -19,6 +23,12 @@ export default function Sortiment() {
                         <div className="p-4 text-center">
                             <h2 className="font-heading text-xl text-charcoal">{flower.name}</h2>
                             <p className="font-body text-sage-dark mt-1">{flower.price}</p>
+                            <button
+                                onClick={() => onAddToCart(flower)}
+                                className="mt-3 bg-sage text-white px-4 py-2 rounded-md hover:bg-sage-dark transition-colors"
+                            >
+                                Legg til i handlekurv
+                            </button>
                         </div>
                     </div>
                 ))}

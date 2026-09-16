@@ -1,6 +1,10 @@
-export default function Footer() {
+type FooterProps = {
+    className?: string;
+};
+
+export default function Footer({ className = "" }: FooterProps) {
     return (
-        <footer className="bg-green-100 mt-auto flex items-center justify-between px-8 py-6">
+        <footer className={`bg-green-100 flex items-center justify-between px-8 py-6 ${className}`}>
             <span className="font-heading text-lg text-charcoal">Din Blomst</span>
             <span className="font-body text-sage-dark">post@dinblomst.no</span>
             <p className="font-body text-sm text-charcoal">© 2026 Din Blomst</p>
