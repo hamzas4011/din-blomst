@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { flowers } from "../data/flowers";
 
 type SortimentProps = {
@@ -7,6 +8,7 @@ type SortimentProps = {
 
 export default function Sortiment({ onAddToCart }: SortimentProps) {
     const [quantities, setQuantities] = useState<Record<string, number>>({});
+    const navigate = useNavigate();
 
     const getQuantity = (name: string) => quantities[name] ?? 1;
 
@@ -56,6 +58,7 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                                 onClick={() => {
                                     onAddToCart(flower, getQuantity(flower.name));
                                     setQuantities((prev) => ({ ...prev, [flower.name]: 1 }));
+                                    navigate("/handlekurv");
                                 }}
                                 className="mt-3 bg-sage text-white px-4 py-2 rounded-md cursor-pointer hover:bg-sage-dark active:scale-95 transition-colors"
                             >
