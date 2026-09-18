@@ -1,5 +1,5 @@
 type CartProps = {
-    cart: { name: string; price: string; image: string }[];
+    cart: { name: string; price: string; image: string; quantity: number }[];
 };
 
 export default function Cart({ cart }: CartProps) {
@@ -27,7 +27,7 @@ export default function Cart({ cart }: CartProps) {
                             />
                             <div>
                                 <h2 className="font-heading text-lg text-charcoal">{item.name}</h2>
-                                <p className="font-body text-sage-dark">{item.price}</p>
+                                <p className="font-body text-sage-dark">{item.price} × {item.quantity}</p>
                             </div>
                         </div>
                     ))}

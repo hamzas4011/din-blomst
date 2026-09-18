@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -7,8 +7,23 @@ import Handlekurv from "./pages/Cart";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+const CART_STORAGE_KEY = "din-blomst-cart";
+
+type CartItem = { name: string; price: string; image: string; quantity: number };
+
 function App() {
-    const [cart, setCart] = useState<{ name: string; price: string; image: string; quantity: number }[]>([]);
+    const [cart, setCart] = useState<CartItem[]>(() => {
+        try {
+            const stored = localStorage.getItem(CART_STORAGE_KEY);
+            return stored ? (JSON.parse(stored) as CartItem[]) : [];
+        } catch {
+            return [];
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    }, [cart]);
 
     const addToCart = (flower: { name: string; price: string; image: string }, quantity: number) => {
         setCart((prev) => {
