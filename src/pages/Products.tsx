@@ -24,8 +24,9 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                             <h2 className="font-heading text-xl text-charcoal">{flower.name}</h2>
                             <p className="font-body text-sage-dark mt-1">{flower.price}</p>
                             <button
+                                type="button"
                                 onClick={() => onAddToCart(flower, 1)}
-                                className="mt-3 bg-sage-dark px-4 py-2 rounded-md cursor-pointer hover:bg-sage active:scale-95 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-dark"
+                                className="mt-3 bg-sage-dark text-black px-4 py-2 rounded-md border-2 border-black cursor-pointer hover:bg-sage active:scale-95 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
                                 aria-label={`Legg ${flower.name} i handlekurv`}
                             >
                                 Legg til i handlekurv
