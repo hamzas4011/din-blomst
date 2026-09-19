@@ -22,6 +22,18 @@ function App() {
         });
     };
 
+    const updateCartQuantity = (name: string, delta: number) => {
+        setCart((prev) =>
+            prev
+                .map((item) => (item.name === name ? { ...item, quantity: item.quantity + delta } : item))
+                .filter((item) => item.quantity > 0)
+        );
+    };
+
+    const removeFromCart = (name: string) => {
+        setCart((prev) => prev.filter((item) => item.name !== name));
+    };
+
     const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
@@ -32,7 +44,10 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/om-oss" element={<About />} />
                     <Route path="/sortiment" element={<Product onAddToCart={addToCart} />} />
-                    <Route path="/handlekurv" element={<Handlekurv cart={cart} />} />
+                    <Route
+                        path="/handlekurv"
+                        element={<Handlekurv cart={cart} onUpdateQuantity={updateCartQuantity} onRemove={removeFromCart} />}
+                    />
                 </Routes>
                 <Footer className="mt-auto" />
             </div>
