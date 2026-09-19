@@ -62,7 +62,7 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                                     onAddToCart(flower, getQuantity(flower.name));
                                     setQuantities((prev) => ({ ...prev, [flower.name]: 1 }));
                                 }}
-                                className="mt-3 bg-sage-dark text-white px-4 py-2 rounded-md cursor-pointer hover:bg-sage active:scale-95 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-dark"
+                                className="mt-3 bg-sage-dark text-black px-4 py-2 rounded-md cursor-pointer hover:bg-sage active:scale-95 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-dark"
                                 aria-label={`Legg ${flower.name} i handlekurv`}
                             >
                                 Legg til i handlekurv
