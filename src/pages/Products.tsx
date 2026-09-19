@@ -39,17 +39,22 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                                 <button
                                     onClick={() => changeQuantity(flower.name, -1)}
                                     className="w-8 h-8 rounded-md bg-white border border-sage text-sage-dark cursor-pointer active:scale-95 transition-colors"
-                                    aria-label="Reduser antall"
+                                    aria-label={`Reduser antall for ${flower.name}`}
                                 >
-                                    -
+                                    <span aria-hidden="true">-</span>
                                 </button>
-                                <span className="font-body text-charcoal w-6 text-center">{getQuantity(flower.name)}</span>
+                                <span
+                                    className="font-body text-charcoal w-6 text-center"
+                                    aria-live="polite"
+                                >
+                                    {getQuantity(flower.name)}
+                                </span>
                                 <button
                                     onClick={() => changeQuantity(flower.name, 1)}
                                     className="w-8 h-8 rounded-md bg-white border border-sage text-sage-dark cursor-pointer active:scale-95 transition-colors"
-                                    aria-label="Øk antall"
+                                    aria-label={`Øk antall for ${flower.name}`}
                                 >
-                                    +
+                                    <span aria-hidden="true">+</span>
                                 </button>
                             </div>
                             <button
@@ -57,7 +62,8 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                                     onAddToCart(flower, getQuantity(flower.name));
                                     setQuantities((prev) => ({ ...prev, [flower.name]: 1 }));
                                 }}
-                                className="mt-3 bg-sage text-white px-4 py-2 rounded-md cursor-pointer hover:bg-sage-dark active:scale-95 transition-colors"
+                                className="mt-3 bg-sage-dark text-white px-4 py-2 rounded-md cursor-pointer hover:bg-sage active:scale-95 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-dark"
+                                aria-label={`Legg ${flower.name} i handlekurv`}
                             >
                                 Legg til i handlekurv
                             </button>
