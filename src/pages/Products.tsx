@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { flowers } from "../data/flowers";
 
 type SortimentProps = {
@@ -6,17 +5,6 @@ type SortimentProps = {
 };
 
 export default function Sortiment({ onAddToCart }: SortimentProps) {
-    const [quantities, setQuantities] = useState<Record<string, number>>({});
-
-    const getQuantity = (name: string) => quantities[name] ?? 1;
-
-    const changeQuantity = (name: string, delta: number) => {
-        setQuantities((prev) => ({
-            ...prev,
-            [name]: Math.max(1, getQuantity(name) + delta),
-        }));
-    };
-
     return (
         <div className="px-8 pt-20 pb-16 max-w-6xl mx-auto">
             <h1 className="font-heading text-4xl text-charcoal text-center mb-12">
@@ -35,34 +23,9 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                         <div className="p-4 text-center">
                             <h2 className="font-heading text-xl text-charcoal">{flower.name}</h2>
                             <p className="font-body text-sage-dark mt-1">{flower.price}</p>
-                            <div className="flex items-center justify-center gap-3 mt-3">
-                                <button
-                                    onClick={() => changeQuantity(flower.name, -1)}
-                                    className="w-8 h-8 rounded-md bg-white border border-sage text-sage-dark cursor-pointer active:scale-95 transition-colors"
-                                    aria-label={`Reduser antall for ${flower.name}`}
-                                >
-                                    <span aria-hidden="true">-</span>
-                                </button>
-                                <span
-                                    className="font-body text-charcoal w-6 text-center"
-                                    aria-live="polite"
-                                >
-                                    {getQuantity(flower.name)}
-                                </span>
-                                <button
-                                    onClick={() => changeQuantity(flower.name, 1)}
-                                    className="w-8 h-8 rounded-md bg-white border border-sage text-sage-dark cursor-pointer active:scale-95 transition-colors"
-                                    aria-label={`Øk antall for ${flower.name}`}
-                                >
-                                    <span aria-hidden="true">+</span>
-                                </button>
-                            </div>
                             <button
-                                onClick={() => {
-                                    onAddToCart(flower, getQuantity(flower.name));
-                                    setQuantities((prev) => ({ ...prev, [flower.name]: 1 }));
-                                }}
-                                className="mt-3 bg-sage-dark text-black px-4 py-2 rounded-md cursor-pointer hover:bg-sage active:scale-95 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-dark"
+                                onClick={() => onAddToCart(flower, 1)}
+                                className="mt-3 bg-sage-dark px-4 py-2 rounded-md cursor-pointer hover:bg-sage active:scale-95 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-dark"
                                 aria-label={`Legg ${flower.name} i handlekurv`}
                             >
                                 Legg til i handlekurv
