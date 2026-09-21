@@ -1,75 +1,27 @@
-# React + TypeScript + Vite
+# 🌸 Din Blomst
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, accessible website for a fictional, family-run flower shop. Built as a portfolio project.
 
-Currently, two official plugins are available:
+🔗 **Live demo:** [din-blomst.vercel.app](https://din-blomst.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About the project
 
-## React Compiler
+Din Blomst is a full frontend website with multiple pages, a product catalog, and a working shopping cart. It is built entirely without a backend, using local state in React.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Features
 
-## Expanding the ESLint configuration
+- 🏠 Home page with a hero section and featured flowers
+- 📖 About page telling the shop's story
+- 🌷 Product catalog with 12 items
+- 🛒 Shopping cart with quantity controls and order confirmation
+- ♿ Built with accessibility in mind (ARIA labels, keyboard navigation, color contrast)
+- 📱 Responsive design for mobile and desktop
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- **React** — component-based UI
+- **TypeScript** — type safety across the app
+- **Tailwind CSS** — utility-first styling
+- **React Router** — client-side routing between pages
+- **Vite** — fast build tool and dev server
+- Deployed on **Vercel**
