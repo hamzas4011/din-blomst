@@ -1,9 +1,12 @@
+import { useState } from "react";
+
 type CartItem = { name: string; price: string; image: string; quantity: number };
 
 type CartProps = {
     cart: CartItem[];
     onUpdateQuantity: (name: string, delta: number) => void;
     onRemove: (name: string) => void;
+    onConfirmOrder: () => void;
 };
 
 function MinusIcon() {
@@ -50,11 +53,39 @@ function EmptyCartIcon() {
     );
 }
 
+function CheckIcon() {
+    return (
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="w-14 h-14 text-sage-dark">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={1.5} />
+            <path d="M8 12.5l2.5 2.5L16 9.5" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    );
+}
+
 const parsePrice = (price: string) => parseInt(price.replace(/\D/g, ""), 10) || 0;
 
-export default function Cart({ cart, onUpdateQuantity, onRemove }: CartProps) {
+export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder }: CartProps) {
+    const [orderConfirmed, setOrderConfirmed] = useState(false);
+
     const total = cart.reduce((sum, item) => sum + parsePrice(item.price) * item.quantity, 0);
     const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    const handleConfirm = () => {
+        onConfirmOrder();
+        setOrderConfirmed(true);
+    };
+
+    if (orderConfirmed) {
+        return (
+            <div className="px-6 pt-32 pb-20 max-w-3xl mx-auto flex flex-col items-center text-center gap-4">
+                <CheckIcon />
+                <h1 className="font-heading text-4xl text-charcoal">Takk for din bestilling!</h1>
+                <p className="font-body text-charcoal/70 max-w-md">
+                    Vi setter sammen buketten din med omtanke, og gjør den klar så snart som mulig.
+                </p>
+            </div>
+        );
+    }
 
     return (
         <div className="px-6 pt-32 pb-20 max-w-3xl mx-auto">
@@ -158,7 +189,8 @@ export default function Cart({ cart, onUpdateQuantity, onRemove }: CartProps) {
 
                         <button
                             type="button"
-                            className="w-full mt-6 bg-sage-dark text-white px-6 py-3.5 rounded-full font-body cursor-pointer hover:bg-sage active:scale-[0.99] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
+                            onClick={handleConfirm}
+                            className="w-full mt-6 bg-sage-dark text-black px-6 py-3.5 rounded-full font-body border-2 border-black/40 cursor-pointer hover:bg-green-100 active:scale-[0.99] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
                         >
                             Bekreft bestilling
                         </button>

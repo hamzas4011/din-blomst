@@ -34,6 +34,10 @@ function App() {
         setCart((prev) => prev.filter((item) => item.name !== name));
     };
 
+    const confirmOrder = () => {
+        setCart([]);
+    };
+
     const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
@@ -46,7 +50,14 @@ function App() {
                     <Route path="/sortiment" element={<Product onAddToCart={addToCart} />} />
                     <Route
                         path="/handlekurv"
-                        element={<Handlekurv cart={cart} onUpdateQuantity={updateCartQuantity} onRemove={removeFromCart} />}
+                        element={
+                            <Handlekurv
+                                cart={cart}
+                                onUpdateQuantity={updateCartQuantity}
+                                onRemove={removeFromCart}
+                                onConfirmOrder={confirmOrder}
+                            />
+                        }
                     />
                 </Routes>
                 <Footer className="mt-auto" />
