@@ -26,7 +26,7 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
                             <button
                                 type="button"
                                 onClick={() => onAddToCart(flower, 1)}
-                                className="mt-3 bg-sage-dark px-4 py-2 rounded-md border border-black/20 cursor-pointer hover:bg-sage hover:bg-green-100 hover:shadow-md active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
+                                className="mt-3 bg-sage-dark px-4 py-2 rounded-md border border-black/20 cursor-pointer hover:bg-green-100 hover:shadow-md active:bg-green-100 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
                                 aria-label={`Legg ${flower.name} i handlekurv`}
                             >
                                 Legg til i handlekurv
