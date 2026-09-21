@@ -77,7 +77,7 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder 
 
     if (orderConfirmed) {
         return (
-            <div className="px-6 pt-32 pb-20 max-w-3xl mx-auto flex flex-col items-center text-center gap-4">
+            <div className="px-6 pt-32 pb-20 max-w-5xl mx-auto flex flex-col items-center text-center gap-4">
                 <CheckIcon />
                 <h1 className="font-heading text-4xl text-charcoal">Takk for din bestilling!</h1>
                 <p className="font-body text-charcoal/70 max-w-md">
@@ -88,7 +88,7 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder 
     }
 
     return (
-        <div className="px-6 pt-32 pb-20 max-w-3xl mx-auto">
+        <div className="px-6 pt-32 pb-20 max-w-5xl mx-auto">
             <div className="text-center mb-12">
                 <h1 className="font-heading text-4xl text-charcoal">Din handlekurv</h1>
                 {cart.length > 0 && (
@@ -106,21 +106,21 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder 
                     </p>
                 </div>
             ) : (
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-5">
                     {cart.map((item) => (
                         <div
                             key={item.name}
-                            className="flex items-center gap-5 bg-cream rounded-2xl p-4 shadow-sm"
+                            className="flex items-center gap-8 bg-cream rounded-2xl p-8 shadow-sm"
                         >
                             <img
                                 src={item.image}
                                 alt={item.name}
-                                className="w-20 h-20 object-cover rounded-xl shrink-0"
+                                className="w-28 h-28 object-cover rounded-xl shrink-0"
                             />
 
                             <div className="flex-1 min-w-0">
-                                <h2 className="font-heading text-lg text-charcoal truncate">{item.name}</h2>
-                                <p className="font-body text-sage-dark text-sm mb-2">{item.price} / stk</p>
+                                <h2 className="font-heading text-xl text-charcoal truncate">{item.name}</h2>
+                                <p className="font-body text-sage-dark text-sm mb-3">{item.price} / stk</p>
 
                                 <div
                                     role="group"
@@ -157,14 +157,14 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder 
                                 </div>
                             </div>
 
-                            <div className="flex flex-col items-end gap-3">
-                                <p className="font-body text-charcoal font-semibold whitespace-nowrap">
+                            <div className="flex flex-col items-end gap-4">
+                                <p className="font-body text-charcoal font-semibold text-lg whitespace-nowrap">
                                     {parsePrice(item.price) * item.quantity} kr
                                 </p>
                                 <button
                                     type="button"
                                     onClick={() => onRemove(item.name)}
-                                    className="flex items-center justify-center w-8 h-8 rounded-full text-charcoal/40 cursor-pointer transition-colors hover:bg-red-50 hover:text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                                    className="flex items-center justify-center w-9 h-9 rounded-full text-charcoal/40 cursor-pointer transition-colors hover:bg-red-50 hover:text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                                     aria-label={`Fjern ${item.name} fra handlekurv`}
                                 >
                                     <TrashIcon />
@@ -173,24 +173,24 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder 
                         </div>
                     ))}
 
-                    <div className="mt-4 bg-white border border-sage/30 rounded-2xl p-6">
+                    <div className="mt-6 bg-white border border-sage/30 rounded-2xl p-10">
                         <div className="flex items-center justify-between">
                             <span className="font-body text-charcoal/70">Delsum</span>
                             <span className="font-body text-charcoal">{total} kr</span>
                         </div>
-                        <div className="flex items-center justify-between mt-1 pb-4 border-b border-sage/20">
+                        <div className="flex items-center justify-between mt-2 pb-5 border-b border-sage/20">
                             <span className="font-body text-charcoal/70">Frakt</span>
                             <span className="font-body text-sage-dark">Beregnes ved bestilling</span>
                         </div>
-                        <div className="flex items-center justify-between mt-4">
-                            <span className="font-heading text-lg text-charcoal">Totalt</span>
-                            <span className="font-heading text-lg text-charcoal">{total} kr</span>
+                        <div className="flex items-center justify-between mt-5">
+                            <span className="font-heading text-xl text-charcoal">Totalt</span>
+                            <span className="font-heading text-xl text-charcoal">{total} kr</span>
                         </div>
 
                         <button
                             type="button"
                             onClick={handleConfirm}
-                            className="w-full mt-6 bg-sage-dark text-black px-6 py-3.5 rounded-full font-body border-2 border-black/40 cursor-pointer hover:bg-green-100 active:scale-[0.99] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
+                            className="w-full mt-7 bg-sage-dark text-black px-6 py-4 rounded-full font-body border-2 border-black/40 cursor-pointer hover:bg-green-100 active:scale-[0.99] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
                         >
                             Bekreft bestilling
                         </button>
