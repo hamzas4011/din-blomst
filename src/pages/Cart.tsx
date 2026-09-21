@@ -81,7 +81,7 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder 
                 <CheckIcon />
                 <h1 className="font-heading text-4xl text-charcoal">Takk for din bestilling!</h1>
                 <p className="font-body text-charcoal/70 max-w-md">
-                    Vi setter sammen buketten din med omtanke, og gjør den klar så snart som mulig.
+                    Vi gjør ordren din klar, og gir deg beskjed når den er klar.
                 </p>
             </div>
         );
