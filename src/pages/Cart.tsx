@@ -190,7 +190,7 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder 
                         <button
                             type="button"
                             onClick={handleConfirm}
-                            className="w-full mt-6 bg-sage-dark text-black px-6 py-3.5 rounded-full font-body border-2 border-black/40 cursor-pointer hover:bg-green-100 active:bg-green-100 active:scale-[0.99] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
+                            className="w-full mt-6 bg-sage-dark text-black px-6 py-3.5 rounded-full font-body border-2 border-black/40 cursor-pointer hover:bg-green-100 active:scale-[0.99] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
                         >
                             Bekreft bestilling
                         </button>
