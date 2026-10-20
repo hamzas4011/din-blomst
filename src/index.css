@@ -1,2 +1,10 @@
 @import "tailwindcss";
 
+/* Fargene som brukes i hele appen (bg-cream, text-sage-dark osv.). */
+@theme {
+  --color-cream: #faf7f2;
+  --color-charcoal: #2d2d2d;
+  --color-sage-light: #e8efe8;
+  --color-sage: #8fae94;
+  --color-sage-dark: #3f6b4a;
+}

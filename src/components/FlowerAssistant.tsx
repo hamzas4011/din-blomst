@@ -76,12 +76,12 @@ export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
                     onChange={(event) => setQuery(event.target.value)}
                     maxLength={200}
                     placeholder='F.eks. "Noe til valentines, rundt 300 kr"'
-                    className="flex-1 rounded-full border border-sage/50 bg-white px-5 py-3 font-body text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark"
+                    className="flex-1 rounded-full border border-sage-dark/70 bg-white px-5 py-3 font-body text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark"
                 />
                 <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="bg-sage-dark px-6 py-3 rounded-full font-body border-2 border-black/40 cursor-pointer hover:bg-green-100 active:scale-95 transition-all disabled:opacity-60 disabled:cursor-wait focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
+                    className="bg-sage-dark text-white px-6 py-3 rounded-full font-body cursor-pointer hover:bg-charcoal active:scale-95 transition-all disabled:opacity-60 disabled:cursor-wait focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
                 >
                     {status === "loading" ? "Leter…" : "Spør"}
                 </button>
