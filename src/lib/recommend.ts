@@ -56,8 +56,9 @@ export async function getRecommendations(query: string): Promise<Recommendation[
                 return flower ? [{ flower, reason }] : [];
             });
         }
-    } catch {
-        // Faller tilbake til lokal matching under.
+        console.warn(`AI-assistenten svarte ikke (HTTP ${response.status}). Bruker nøkkelord-søk i stedet.`);
+    } catch (error) {
+        console.warn("AI-assistenten var ikke tilgjengelig. Bruker nøkkelord-søk i stedet.", error);
     }
     return getLocalRecommendations(query);
 }
