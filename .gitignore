@@ -26,4 +26,3 @@ dist-ssr
 # Hemmeligheter
 .env
 .env.*
-!.env.example

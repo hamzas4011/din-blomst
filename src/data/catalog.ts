@@ -17,6 +17,6 @@ export const catalog: CatalogItem[] = [
   { name: "Hvit Elegance", price: "349 kr", tags: ["bryllup", "sorg", "kjærlighet", "hvit"], description: "Stilrene hvite blomster for de store anledningene." },
   { name: "Bryllupsbukett", price: "499 kr", tags: ["bryllup", "hvit"], description: "Laget for den store dagen." },
   { name: "Orkidé", price: "229 kr", tags: ["hjem", "takk", "bedring"], description: "Langvarig potteplante – en gave som varer." },
-  { name: "Sukkulent-sett", price: "199 kr", tags: ["hjem"], description: "Lettstelte sukkulenter, perfekt til hjem og kontor." },
+  { name: "Grønne planter", price: "199 kr", tags: ["hjem"], description: "Lettstelte grønne planter, perfekt til hjem og kontor." },
   { name: "Fødselsdagsbukett", price: "289 kr", tags: ["bursdag"], description: "Festlig bukett laget for å feire." },
 ];

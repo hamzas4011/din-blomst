@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import type { Flower } from "../data/flowers";
 import { getRecommendations, type Recommendation } from "../lib/recommend";
 
 type FlowerAssistantProps = {
-    onAddToCart: (flower: Flower, quantity: number) => void;
-    onRecommend: (names: string[]) => void;
+    onRecommend: (recommendations: Recommendation[]) => void;
 };
 
 const suggestions = [
@@ -17,9 +15,9 @@ const suggestions = [
     { label: "Til hjemmet", query: "Noe til hjemmet som varer lenge" },
 ];
 
-export default function FlowerAssistant({ onAddToCart, onRecommend }: FlowerAssistantProps) {
+export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
     const [query, setQuery] = useState("");
-    const [results, setResults] = useState<Recommendation[]>([]);
+    const [count, setCount] = useState(0);
     const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
     const inputRef = useRef<HTMLInputElement>(null);
     const location = useLocation();
@@ -37,11 +35,11 @@ export default function FlowerAssistant({ onAddToCart, onRecommend }: FlowerAssi
         setStatus("loading");
         try {
             const recommendations = await getRecommendations(text);
-            setResults(recommendations);
-            onRecommend(recommendations.map(({ flower }) => flower.name));
+            setCount(recommendations.length);
+            onRecommend(recommendations);
             setStatus("done");
         } catch {
-            setResults([]);
+            setCount(0);
             onRecommend([]);
             setStatus("error");
         }
@@ -110,40 +108,16 @@ export default function FlowerAssistant({ onAddToCart, onRecommend }: FlowerAssi
                     <p className="font-body text-red-700">Noe gikk galt. Prøv igjen om litt.</p>
                 )}
 
-                {status === "done" && results.length === 0 && (
+                {status === "done" && count === 0 && (
                     <p className="font-body text-charcoal/70">
                         Vi fant ingen treff. Prøv å beskrive anledningen, f.eks. bursdag, bryllup eller takk.
                     </p>
                 )}
 
-                {status === "done" && results.length > 0 && (
-                    <>
-                        <h3 className="font-heading text-lg text-charcoal mb-3">Anbefalt for deg</h3>
-                        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            {results.map(({ flower, reason }) => (
-                                <li key={flower.name} className="flex md:flex-col gap-4 bg-white rounded-xl p-4 shadow-sm">
-                                    <img
-                                        src={flower.image}
-                                        alt={flower.name}
-                                        className="w-20 h-20 md:w-full md:h-40 object-cover rounded-lg shrink-0"
-                                    />
-                                    <div className="flex flex-col flex-1">
-                                        <p className="font-heading text-charcoal">{flower.name}</p>
-                                        <p className="font-body text-sage-dark text-sm">{flower.price}</p>
-                                        <p className="font-body text-charcoal/70 text-sm mt-1">{reason}</p>
-                                        <button
-                                            type="button"
-                                            onClick={() => onAddToCart(flower, 1)}
-                                            className="mt-3 self-start bg-sage-dark px-4 py-2 rounded-md border border-black/20 text-sm cursor-pointer hover:bg-green-100 hover:shadow-md active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
-                                            aria-label={`Legg ${flower.name} i handlekurv`}
-                                        >
-                                            Legg i handlekurv
-                                        </button>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </>
+                {status === "done" && count > 0 && (
+                    <p className="font-body text-charcoal">
+                        Vi fant {count} forslag til deg. Se «Anbefalt for deg» under.
+                    </p>
                 )}
             </div>
         </section>
