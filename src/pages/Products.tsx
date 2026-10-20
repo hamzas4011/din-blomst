@@ -1,19 +1,35 @@
+import { useState } from "react";
 import { flowers } from "../data/flowers";
+import FlowerAssistant from "../components/FlowerAssistant";
 
 type SortimentProps = {
     onAddToCart: (flower: { name: string; price: string; image: string }, quantity: number) => void;
 };
 
 export default function Sortiment({ onAddToCart }: SortimentProps) {
+    const [recommended, setRecommended] = useState<string[]>([]);
+
     return (
         <div className="px-8 pt-20 pb-16 max-w-6xl mx-auto">
             <h1 className="font-heading text-4xl text-charcoal text-center mb-12">
                 Vårt sortiment
             </h1>
 
+            <FlowerAssistant onAddToCart={onAddToCart} onRecommend={setRecommended} />
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {flowers.map((flower) => (
-                    <div key={flower.name} className="bg-cream rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <div
+                        key={flower.name}
+                        className={`relative bg-cream rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl ${
+                            recommended.includes(flower.name) ? "ring-2 ring-sage-dark ring-offset-2" : ""
+                        }`}
+                    >
+                        {recommended.includes(flower.name) && (
+                            <span className="absolute top-3 left-3 z-10 bg-sage-dark text-black text-xs font-body px-3 py-1 rounded-full border border-black/20">
+                                Anbefalt
+                            </span>
+                        )}
                         <img
                             src={flower.image}
                             alt={flower.name}

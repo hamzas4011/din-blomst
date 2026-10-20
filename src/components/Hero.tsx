@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import flower1 from "../assets/flower-1.jpg";
 import flower2 from "../assets/flower-2.jpg";
 import flower3 from "../assets/flower-3.jpg";
@@ -11,6 +12,12 @@ export default function Hero() {
                 <p className="font-body text-lg text-sage-dark mt-2">
                     Friske blomster, levert med omtanke
                 </p>
+                <Link
+                    to="/sortiment#assistent"
+                    className="inline-block mt-6 bg-sage-dark text-black px-6 py-3 rounded-full font-body border-2 border-black/40 hover:bg-green-100 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark focus-visible:ring-offset-2"
+                >
+                    Usikker på hva du skal velge? Spør blomsterassistenten →
+                </Link>
             </div>
 
             <img
