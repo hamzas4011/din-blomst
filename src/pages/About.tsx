@@ -29,7 +29,7 @@ export default function About() {
                     src={shop}
                     alt="Blomster og planter i Din Blomst-butikken"
                     loading="lazy"
-                    className="w-full aspect-[4/3] object-cover rounded-2xl shadow-md"
+                    className="w-full aspect-4/3 object-cover rounded-2xl shadow-md"
                 />
                 <div>
                     <h2 className="font-heading text-2xl sm:text-3xl text-charcoal mb-4">
