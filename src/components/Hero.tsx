@@ -31,7 +31,7 @@ export default function Hero() {
                 <img
                     src={flower1}
                     alt="Rosa tulipan mot lys rosa bakgrunn"
-                    className="w-full aspect-[4/3] md:aspect-[4/5] object-cover rounded-3xl shadow-md"
+                    className="w-full max-w-sm md:max-w-md mx-auto aspect-[4/3] md:aspect-square object-cover rounded-3xl shadow-md"
                 />
             </div>
         </section>
