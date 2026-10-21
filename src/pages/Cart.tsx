@@ -136,7 +136,7 @@ export default function Cart({ cart, onUpdateQuantity, onRemove, onConfirmOrder 
                             <div className="flex-1 min-w-0 flex flex-col justify-between gap-2">
                                 <div className="flex flex-col min-[360px]:flex-row min-[360px]:items-start justify-between gap-1 min-[360px]:gap-3">
                                     <div className="min-w-0">
-                                        <h2 className="font-heading text-lg text-charcoal leading-snug break-words">{item.name}</h2>
+                                        <h2 className="font-heading text-lg text-charcoal leading-snug wrap-break-word">{item.name}</h2>
                                         <p className="font-body text-gray-500 text-sm">{item.price} / stk</p>
                                     </div>
                                     <p className="font-body text-charcoal font-semibold whitespace-nowrap">
