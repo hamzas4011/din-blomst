@@ -30,7 +30,7 @@ export default function Hero() {
                     </p>
 
                     <div className="bg-white rounded-2xl border border-sage/40 shadow-lg p-5 mt-8 text-left">
-                        <div className="flex items-center gap-12 md:gap-3">
+                        <div className="flex items-center gap-6 md:gap-3">
                             {/* På mobil er det store bildet skjult, så blomsten vises som et lite ikon her i stedet. */}
                             <img
                                 src={flower1}
