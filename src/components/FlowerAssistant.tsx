@@ -1,25 +1,20 @@
 import { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { getRecommendations, type Recommendation } from "../lib/recommend";
+import { suggestions } from "../data/suggestions";
 
 type FlowerAssistantProps = {
     onRecommend: (recommendations: Recommendation[]) => void;
 };
 
-const suggestions = [
-    { label: "Valentines", query: "Noe romantisk til valentines" },
-    { label: "Bursdag", query: "En gave til bursdag" },
-    { label: "Bryllup", query: "Blomster til bryllup" },
-    { label: "Takk", query: "Si takk til noen" },
-    { label: "God bedring", query: "God bedring" },
-    { label: "Til hjemmet", query: "Noe til hjemmet som varer lenge" },
-];
-
 export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
-    const [query, setQuery] = useState("");
+    const [searchParams] = useSearchParams();
+    const initialQuery = searchParams.get("q") ?? "";
+    const [query, setQuery] = useState(initialQuery);
     const [count, setCount] = useState(0);
     const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
     const inputRef = useRef<HTMLInputElement>(null);
+    const lastAutoQuery = useRef<string | null>(null);
     const location = useLocation();
 
     // Lenken fra forsiden går til /sortiment#assistent, så vi setter fokus i feltet.
@@ -44,6 +39,16 @@ export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
             setStatus("error");
         }
     };
+
+    // Spørsmål fra forsiden kommer som ?q=..., så vi søker med en gang.
+    // Ref-en hindrer dobbelt søk når effekten kjøres to ganger i StrictMode.
+    useEffect(() => {
+        if (!initialQuery || lastAutoQuery.current === initialQuery) return;
+        lastAutoQuery.current = initialQuery;
+        setQuery(initialQuery);
+        search(initialQuery);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [initialQuery]);
 
     return (
         <section

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { flowers, type Flower } from "../data/flowers";
 import FlowerAssistant from "../components/FlowerAssistant";
 import type { Recommendation } from "../lib/recommend";
@@ -10,6 +10,14 @@ type SortimentProps = {
 export default function Sortiment({ onAddToCart }: SortimentProps) {
     const [recommended, setRecommended] = useState<Recommendation[]>([]);
     const [justAdded, setJustAdded] = useState<string | null>(null);
+    const recommendedRef = useRef<HTMLElement>(null);
+
+    // Ruller ned til forslagene når assistenten har svart, så man ser at søket ble gjort.
+    useEffect(() => {
+        if (recommended.length > 0) {
+            recommendedRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }, [recommended]);
 
     // Viser «Lagt til» på knappen en kort stund, så man ser at trykket virket (særlig på mobil).
     const handleAdd = (flower: Flower) => {
@@ -64,7 +72,7 @@ export default function Sortiment({ onAddToCart }: SortimentProps) {
             <FlowerAssistant onRecommend={setRecommended} />
 
             {recommended.length > 0 && (
-                <section aria-labelledby="anbefalt-heading" className="mb-16">
+                <section ref={recommendedRef} aria-labelledby="anbefalt-heading" className="mb-16 scroll-mt-24">
                     <h2 id="anbefalt-heading" className="font-heading text-2xl text-charcoal mb-6">
                         Anbefalt for deg
                     </h2>

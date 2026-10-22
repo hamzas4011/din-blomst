@@ -45,11 +45,11 @@ export default function Nav({ cartCount }: NavProps) {
                     Din Blomst
                 </Link>
                 <div className="hidden md:flex gap-6">
-                    <Link to="/om-oss" className="hover:text-sage-dark transition-colors">
-                        Om oss
-                    </Link>
                     <Link to="/sortiment" className="hover:text-sage-dark transition-colors">
                         Sortiment
+                    </Link>
+                    <Link to="/om-oss" className="hover:text-sage-dark transition-colors">
+                        Om oss
                     </Link>
                     <Link to="/handlekurv" className="hover:text-sage-dark transition-colors">
                         Handlekurv ({cartCount})
@@ -84,11 +84,11 @@ export default function Nav({ cartCount }: NavProps) {
 
             {menuOpen && (
                 <div className="md:hidden flex flex-col pt-2">
-                    <Link to="/om-oss" className="py-3 border-b border-black/10 active:text-sage-dark" onClick={() => setMenuOpen(false)}>
-                        Om oss
-                    </Link>
                     <Link to="/sortiment" className="py-3 border-b border-black/10 active:text-sage-dark" onClick={() => setMenuOpen(false)}>
                         Sortiment
+                    </Link>
+                    <Link to="/om-oss" className="py-3 border-b border-black/10 active:text-sage-dark" onClick={() => setMenuOpen(false)}>
+                        Om oss
                     </Link>
                     <Link to="/handlekurv" className="py-3 active:text-sage-dark" onClick={() => setMenuOpen(false)}>
                         Handlekurv ({cartCount})
