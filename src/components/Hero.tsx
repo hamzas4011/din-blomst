@@ -1,14 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import flower1 from "../assets/flower-1.jpg";
+import { suggestions } from "../data/suggestions";
 
-// Blandede forslag (anledning, mottaker, farge, budsjett), så man ser hva assistenten forstår.
-const heroSuggestions = [
-    { label: "Bursdag", query: "En gave til bursdag" },
-    { label: "Til mamma", query: "Noe fint til mamma" },
-    { label: "Rosa blomster", query: "Rosa blomster" },
-    { label: "Under 300 kr", query: "Noe fint under 300 kr" },
-];
+const heroSuggestions = suggestions.slice(0, 4);
 
 export default function Hero() {
     const [query, setQuery] = useState("");
@@ -34,8 +29,8 @@ export default function Hero() {
                         Håndlagde buketter til hverdag og fest.
                     </p>
 
-                    <div className="bg-white rounded-2xl shadow-md p-5 mt-8 text-left">
-                        <p className="inline-flex items-center gap-1.5 rounded-full bg-sage-light px-3 py-1 text-sm font-body font-semibold text-sage-dark">
+                    <div className="bg-white rounded-2xl border border-sage/40 shadow-lg p-5 mt-8 text-left">
+                        <p className="inline-flex items-center gap-1.5 rounded-full bg-sage-dark px-3 py-1 text-sm font-body font-semibold text-white">
                             <span aria-hidden="true">🤖</span> AI-assistent
                         </p>
 

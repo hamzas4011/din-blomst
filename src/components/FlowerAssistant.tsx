@@ -56,11 +56,14 @@ export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
             aria-labelledby="assistent-heading"
             className="bg-cream rounded-2xl shadow-md p-6 md:p-8 mb-12"
         >
-            <h2 id="assistent-heading" className="font-heading text-2xl text-charcoal">
+            <p className="inline-flex items-center gap-1.5 rounded-full bg-sage-dark px-3 py-1 text-sm font-body font-semibold text-white">
+                <span aria-hidden="true">🤖</span> AI-assistent
+            </p>
+            <h2 id="assistent-heading" className="font-heading text-2xl text-charcoal mt-3">
                 Finn den perfekte blomsten
             </h2>
-            <p className="font-body text-charcoal/70 mt-1">
-                Fortell oss anledningen eller budsjettet, så foreslår vi noe som passer.
+            <p id="assistent-hjelp" className="font-body text-charcoal/70 mt-1">
+                Skriv fritt: anledning, hvem det er til, farger eller budsjett.
             </p>
 
             <form
@@ -80,7 +83,8 @@ export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
                     maxLength={200}
-                    placeholder='F.eks. "Noe til valentines, rundt 300 kr"'
+                    aria-describedby="assistent-hjelp"
+                    placeholder='F.eks. "rosa til mamma, 400 kr"'
                     className="flex-1 rounded-full border border-sage-dark/70 bg-white px-5 py-3 font-body text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark"
                 />
                 <button
@@ -92,7 +96,7 @@ export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
                 </button>
             </form>
 
-            <div role="group" aria-label="Forslag til anledninger" className="flex flex-wrap gap-2 mt-4">
+            <div role="group" aria-label="Eksempler du kan prøve" className="flex flex-wrap gap-2 mt-4">
                 {suggestions.map((suggestion) => (
                     <button
                         key={suggestion.label}
