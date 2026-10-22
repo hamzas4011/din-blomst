@@ -30,12 +30,12 @@ export default function Hero() {
                     </p>
 
                     <div className="bg-white rounded-2xl border border-sage/40 shadow-lg p-5 mt-8 text-left">
-                        <div className="flex items-center gap-7 md:gap-3">
+                        <div className="flex items-center justify-center md:justify-start gap-3">
                             {/* På mobil er det store bildet skjult, så blomsten vises som et lite ikon her i stedet. */}
                             <img
                                 src={flower1}
                                 alt=""
-                                className="md:hidden w-10 h-10 rounded-full object-cover ring-2 ring-sage-light"
+                                className="md:hidden w-10 h-10 shrink-0 rounded-full object-cover ring-2 ring-sage-light"
                             />
                             <p className="inline-flex items-center gap-1.5 rounded-full bg-sage-dark px-3 py-1 text-sm font-body font-semibold text-white">
                                 <span aria-hidden="true" className="hidden md:inline">🤖</span> AI-assistent
