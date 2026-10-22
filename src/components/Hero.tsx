@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import flower1 from "../assets/flower-1.jpg";
 import { suggestions } from "../data/suggestions";
 
-const heroSuggestions = suggestions.slice(0, 4);
+const heroSuggestions = suggestions.slice(0, 3);
 
 export default function Hero() {
     const [query, setQuery] = useState("");
