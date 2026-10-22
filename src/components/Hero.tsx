@@ -17,7 +17,7 @@ export default function Hero() {
 
     return (
         <section className="bg-cream flex-1 flex items-center">
-            <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 py-12 sm:py-20 grid gap-10 md:grid-cols-2 md:gap-12 items-center">
+            <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 pt-10 pb-12 md:py-20 grid gap-6 md:grid-cols-2 md:gap-12 items-center">
                 <div className="text-center md:text-left">
                     <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-charcoal leading-tight text-balance">
                         Blomster levert
@@ -30,9 +30,17 @@ export default function Hero() {
                     </p>
 
                     <div className="bg-white rounded-2xl border border-sage/40 shadow-lg p-5 mt-8 text-left">
-                        <p className="inline-flex items-center gap-1.5 rounded-full bg-sage-dark px-3 py-1 text-sm font-body font-semibold text-white">
-                            <span aria-hidden="true">🤖</span> AI-assistent
-                        </p>
+                        <div className="flex items-center gap-3">
+                            {/* På mobil er det store bildet skjult, så blomsten vises som et lite ikon her i stedet. */}
+                            <img
+                                src={flower1}
+                                alt=""
+                                className="md:hidden w-10 h-10 rounded-full object-cover ring-2 ring-sage-light"
+                            />
+                            <p className="inline-flex items-center gap-1.5 rounded-full bg-sage-dark px-3 py-1 text-sm font-body font-semibold text-white">
+                                <span aria-hidden="true" className="hidden md:inline">🤖</span> AI-assistent
+                            </p>
+                        </div>
 
                         <label htmlFor="hero-assistent-input" className="sr-only">
                             Hva leter du etter?
@@ -91,7 +99,7 @@ export default function Hero() {
                 <img
                     src={flower1}
                     alt="Rosa tulipan mot lys rosa bakgrunn"
-                    className="w-full max-w-sm md:max-w-md mx-auto aspect-4/3 md:aspect-square object-cover rounded-3xl shadow-md"
+                    className="hidden md:block w-full max-w-md mx-auto aspect-square object-cover rounded-3xl shadow-md"
                 />
             </div>
         </section>
