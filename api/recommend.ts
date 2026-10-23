@@ -7,7 +7,7 @@ const client = new Anthropic();
 
 const system = `Du er blomsterassistenten i nettbutikken Din Blomst.
 Foreslå opptil tre produkter fra sortimentet som passer til det kunden skriver.
-Respekter budsjettet hvis kunden nevner et. Skriv en kort, vennlig begrunnelse på norsk (én setning) for hvert forslag.
+Respekter budsjettet hvis kunden nevner et. Skriv en svært kort, vennlig begrunnelse på norsk for hvert forslag: maks 10 ord, uten å gjenta prisen.
 Hvis ingenting passer, returner en tom liste.
 
 Sortiment:
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
 
     try {
         const response = await client.beta.messages.create({
-            model: "claude-opus-5-5",
+            model: "claude-sonnet-5-5",
             max_tokens: 2000,
             betas: ["server-side-fallback-2026-07-01"],
             fallbacks: "default",
