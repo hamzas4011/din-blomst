@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { getRecommendations, type Recommendation } from "../lib/recommend";
 import { suggestions } from "../data/suggestions";
+import flower1 from "../assets/flower-1.jpg";
 
 type FlowerAssistantProps = {
     onRecommend: (recommendations: Recommendation[]) => void;
@@ -56,9 +57,17 @@ export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
             aria-labelledby="assistent-heading"
             className="bg-cream rounded-2xl shadow-md p-6 md:p-8 mb-12"
         >
-            <p className="inline-flex items-center gap-1.5 rounded-full bg-sage-dark px-3 py-1 text-sm font-body font-semibold text-white">
-                <span aria-hidden="true">🤖</span> AI-assistent
-            </p>
+            <div className="flex items-center gap-6 md:gap-3">
+                {/* Samme blomsterikon som på forsiden, så assistenten ser lik ut på mobil. */}
+                <img
+                    src={flower1}
+                    alt=""
+                    className="md:hidden w-14 h-14 shrink-0 rounded-full object-cover ring-2 ring-sage-light"
+                />
+                <p className="inline-flex items-center gap-1.5 rounded-full bg-sage-dark px-3 py-1 text-sm font-body font-semibold text-white">
+                    <span aria-hidden="true" className="hidden md:inline">🤖</span> AI-assistent
+                </p>
+            </div>
             <h2 id="assistent-heading" className="font-heading text-2xl text-charcoal mt-3">
                 Finn den perfekte blomsten
             </h2>
