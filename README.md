@@ -4,8 +4,7 @@ A modern, accessible website for a fictional, family-run flower shop, with an AI
 
 🔗 **Live demo:** [din-blomst.vercel.app](https://din-blomst.vercel.app)
 
-<img width="700" height="700" alt="Skjermbilde 2026-10-25 232042" src="https://github.com/user-attachments/assets/2d541483-b395-484a-ac36-f27ee4c1ccaa" />
-
+<img width="2514" height="1258" alt="Skjermbilde 2026-10-28 110831" src="https://github.com/user-attachments/assets/4bdf315f-be19-46fd-8217-7a82984de229" />
 
 ## About the project
 
