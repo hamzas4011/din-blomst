@@ -93,7 +93,7 @@ export default function FlowerAssistant({ onRecommend }: FlowerAssistantProps) {
                     onChange={(event) => setQuery(event.target.value)}
                     maxLength={200}
                     aria-describedby="assistent-hjelp"
-                    placeholder='F.eks. "rosa til mamma, 400 kr"'
+                    placeholder='F.eks. "roser til mamma, 400 kr"'
                     className="flex-1 rounded-full border border-sage-dark/70 bg-white px-5 py-3 font-body text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-dark"
                 />
                 <button

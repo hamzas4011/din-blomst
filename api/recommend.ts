@@ -41,11 +41,9 @@ export async function POST(request: Request) {
     }
 
     try {
-        const response = await client.beta.messages.create({
-            model: "claude-sonnet-5-5",
+        const response = await client.messages.create({
+            model: "claude-haiku-5-5",
             max_tokens: 2000,
-            betas: ["server-side-fallback-2026-07-01"],
-            fallbacks: "default",
             output_config: { effort: "low", format: { type: "json_schema", schema } },
             system,
             messages: [{ role: "user", content: query }],
